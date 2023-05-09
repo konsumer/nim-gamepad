@@ -11,6 +11,8 @@ nimble install gamepad
 ## usage
 
 ```nim
+import gamepad
+
 proc onGamepadAttached(device: ptr GamepadDevice, context: pointer) =
   var js = device[]
   echo "attached: " & $js.deviceID
