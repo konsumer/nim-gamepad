@@ -5,6 +5,7 @@ author        = "David Konsumer"
 description   = "Cross-platform gamepad driver"
 license       = "MIT"
 srcDir        = "src"
+bin           = @["jstest"]
 
 
 # Dependencies

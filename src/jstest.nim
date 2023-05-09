@@ -1,8 +1,4 @@
-import unittest
-
-import gamepad
-
-# this isn't really a unit-test, just a way to load the lib
+import ./gamepad
 
 proc onGamepadAttached(device: ptr Gamepad_device, context: pointer) =
   var js = device[]
@@ -24,13 +20,21 @@ proc onAxisMoved (device: ptr Gamepad_device, axisID: cuint, value: cfloat, last
   var js = device[]
   echo "axis: (" & $axisID & ")" & $js.deviceID & " - " & $value
 
-test "can add":
-  gamepad.deviceAttachFunc(onGamepadAttached)
-  gamepad.deviceRemoveFunc(onGamepadRemoved)
-  gamepad.buttonDownFunc(onButtonDown)
-  gamepad.buttonUpFunc(onButtonUp)
-  gamepad.axisMoveFunc(onAxisMoved)
-  gamepad.init()
-  
-  gamepad.detectDevices()
+
+const GAMEPAD_POLL_ITERATION_INTERVAL=30
+
+gamepad.deviceAttachFunc(onGamepadAttached)
+gamepad.deviceRemoveFunc(onGamepadRemoved)
+gamepad.buttonDownFunc(onButtonDown)
+gamepad.buttonUpFunc(onButtonUp)
+gamepad.axisMoveFunc(onAxisMoved)
+gamepad.init()
+
+var iterationsToNextPoll = 1
+var close = false
+while not close:
   gamepad.processEvents()
+  dec iterationsToNextPoll
+  if iterationsToNextPoll == 0:
+    gamepad.detectDevices()
+    iterationsToNextPoll = GAMEPAD_POLL_ITERATION_INTERVAL

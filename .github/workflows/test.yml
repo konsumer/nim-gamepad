@@ -25,4 +25,4 @@ jobs:
         if: matrix.os == 'Windows'
       
       - name: Test
-        run: nimble test
+        run: nimble build
