@@ -1,0 +1,28 @@
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      matrix:
+        os:
+          - windows
+          - ubuntu
+          - macOS
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      
+      - name: Setup
+        uses: jiro4989/setup-nim-action@v1
+
+      - name: Set up MinGW
+        uses: msys2/setup-msys2@v2
+        if: ${{ matrix.os }} == windows
+      
+      - name: Test
+        run: nimble test

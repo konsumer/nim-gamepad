@@ -1,0 +1,3 @@
+[submodule "src/libstem_gamepad"]
+	path = src/libstem_gamepad
+	url = https://github.com/ThemsAllTook/libstem_gamepad.git
