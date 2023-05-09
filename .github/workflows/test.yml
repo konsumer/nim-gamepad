@@ -22,7 +22,7 @@ jobs:
 
       - name: Set up MinGW
         uses: msys2/setup-msys2@v2
-        if: ${{ matrix.os }} == windows
+        if: ${{ matrix.os }} == "windows"
       
       - name: Test
         run: nimble test
