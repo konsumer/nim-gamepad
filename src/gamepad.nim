@@ -11,7 +11,7 @@ when defined(linux):
 
 when defined(windows):
   {.compile: "src/libstem_gamepad/source/gamepad/Gamepad_windows_dinput.c".}
-  {.passL: "$(DXSDK_DIR)lib/x64/Xinput.lib $(DXSDK_DIR)lib/x64/dinput8.lib $(DXSDK_DIR)lib/x64/dxguid.lib".}
+  {.passL: "-L c:/programdata/chocolatey/lib/mingw/tools/install/mingw64/lib Xinput.lib dinput8.lib dxguid.lib".}
 
 type
   GamepadDevice* {.bycopy.} = object
