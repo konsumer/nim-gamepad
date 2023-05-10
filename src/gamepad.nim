@@ -11,8 +11,6 @@ when defined(linux):
 
 when defined(windows):
   {.compile: "src/libstem_gamepad/source/gamepad/Gamepad_windows_dinput.c".}
-  {.passC: "-DFREEGLUT_STATIC".}
-  {.passL: "-lXinput -ldinput8 -ldxguid -l/WbemUuid -lOle32 -lOleAut32".}
 
 type
   GamepadDevice* {.bycopy.} = object
