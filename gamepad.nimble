@@ -1,12 +1,11 @@
 # Package
 
-version       = "0.0.6"
+version       = "0.0.7"
 author        = "David Konsumer"
 description   = "Cross-platform gamepad driver"
 license       = "MIT"
 srcDir        = "src"
 bin           = @["jstest"]
-installDirs   = @["src", "src/gamepad"]
 
 # Dependencies
 
