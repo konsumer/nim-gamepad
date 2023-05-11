@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.0.3"
+version       = "0.0.4"
 author        = "David Konsumer"
 description   = "Cross-platform gamepad driver"
 license       = "MIT"
