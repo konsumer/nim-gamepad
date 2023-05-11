@@ -1,4 +1,4 @@
-{.passC: "-Isrc".}
+{.passC: "-I.".}
 
 {.compile: "gamepad/Gamepad_private.c".}
 
