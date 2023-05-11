@@ -1,16 +1,16 @@
 {.passC: "-Isrc".}
 
-{.compile: "src/gamepad/Gamepad_private.c".}
+{.compile: "gamepad/Gamepad_private.c".}
 
 when defined(macosx):
-  {.compile: "src/gamepad/Gamepad_macosx.c".}
+  {.compile: "gamepad/Gamepad_macosx.c".}
   {.passL: "-framework IOKit -framework CoreFoundation".}
 
 when defined(linux):
-  {.compile: "src/gamepad/Gamepad_linux.c".}
+  {.compile: "gamepad/Gamepad_linux.c".}
 
 when defined(windows):
-  {.compile: "src/gamepad/Gamepad_windows_dinput.c".}
+  {.compile: "gamepad/Gamepad_windows_dinput.c".}
   {.passL: "-lXinput -ldinput8 -ldxguid".}
 
 type
