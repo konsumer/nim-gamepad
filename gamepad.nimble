@@ -6,7 +6,8 @@ description   = "Cross-platform gamepad driver"
 license       = "MIT"
 srcDir        = "src"
 bin           = @["jstest"]
-installDirs   = @["src/", "libgamepad/"]
+installDirs   = @["src/", "libgamepad/gamepad"]
+installExt = @["nim", "c", "h"]
 
 
 # Dependencies
