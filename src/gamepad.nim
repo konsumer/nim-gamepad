@@ -25,9 +25,9 @@ type
     buttonStates*: ptr bool
     privateData*: pointer
   
-  cbAttach = proc (device: ptr GamepadDevice; context: pointer)
-  cbButton = proc (device: ptr GamepadDevice; buttonID: cuint; timestamp: cdouble; context: pointer)
-  cbAxis = proc (device: ptr GamepadDevice; axisID: cuint; value: cfloat; lastValue: cfloat; timestamp: cdouble; context: pointer)
+  cbAttach = proc (device: ptr GamepadDevice; context: pointer) {.cdecl.}
+  cbButton = proc (device: ptr GamepadDevice; buttonID: cuint; timestamp: cdouble; context: pointer) {.cdecl.}
+  cbAxis = proc (device: ptr GamepadDevice; axisID: cuint; value: cfloat; lastValue: cfloat; timestamp: cdouble; context: pointer) {.cdecl.}
 
 
 {.push callconv: cdecl, importc:"Gamepad_$1".}

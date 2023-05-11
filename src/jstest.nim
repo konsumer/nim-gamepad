@@ -1,22 +1,22 @@
 import ./gamepad
 
-proc onGamepadAttached(device: ptr GamepadDevice, context: pointer) =
+proc onGamepadAttached(device: ptr GamepadDevice, context: pointer) {.cdecl.} =
   var js = device[]
   echo "attached: " & $js.deviceID
 
-proc onGamepadRemoved(device: ptr GamepadDevice, context: pointer) =
+proc onGamepadRemoved(device: ptr GamepadDevice, context: pointer) {.cdecl.} =
   var js = device[]
   echo "removed: " & $js.deviceID
 
-proc onButtonDown (device: ptr GamepadDevice, buttonID: cuint, timestamp: cdouble, context: pointer) =
+proc onButtonDown (device: ptr GamepadDevice, buttonID: cuint, timestamp: cdouble, context: pointer) {.cdecl.} =
   var js = device[]
   echo "buttonDown: (" & $buttonID & ")" & $js.deviceID
 
-proc onButtonUp (device: ptr GamepadDevice, buttonID: cuint, timestamp: cdouble, context: pointer) =
+proc onButtonUp (device: ptr GamepadDevice, buttonID: cuint, timestamp: cdouble, context: pointer) {.cdecl.} =
   var js = device[]
   echo "buttonUp: (" & $buttonID & ")" & $js.deviceID
 
-proc onAxisMoved (device: ptr GamepadDevice, axisID: cuint, value: cfloat, lastValue: cfloat, timestamp: cdouble, context: pointer) =
+proc onAxisMoved (device: ptr GamepadDevice, axisID: cuint, value: cfloat, lastValue: cfloat, timestamp: cdouble, context: pointer) {.cdecl.} =
   var js = device[]
   echo "axis: (" & $axisID & ")" & $js.deviceID & " - " & $value
 

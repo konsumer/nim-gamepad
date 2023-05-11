@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.0.7"
+version       = "0.0.8"
 author        = "David Konsumer"
 description   = "Cross-platform gamepad driver"
 license       = "MIT"
