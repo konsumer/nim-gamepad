@@ -1,16 +1,16 @@
-{.passC: "-Isrc/libstem_gamepad/source".}
+{.passC: "-Ilibgamepad".}
 
-{.compile: "src/libstem_gamepad/source/gamepad/Gamepad_private.c".}
+{.compile: "libgamepad/gamepad/Gamepad_private.c".}
 
 when defined(macosx):
-  {.compile: "src/libstem_gamepad/source/gamepad/Gamepad_macosx.c".}
+  {.compile: "libgamepad/gamepad/Gamepad_macosx.c".}
   {.passL: "-framework IOKit -framework CoreFoundation".}
 
 when defined(linux):
-  {.compile: "src/libstem_gamepad/source/gamepad/Gamepad_linux.c".}
+  {.compile: "libgamepad/gamepad/Gamepad_linux.c".}
 
 when defined(windows):
-  {.compile: "src/libstem_gamepad/source/gamepad/Gamepad_windows_dinput.c".}
+  {.compile: "libgamepad/gamepad/Gamepad_windows_dinput.c".}
   {.passL: "-lXinput -ldinput8 -ldxguid".}
 
 type
