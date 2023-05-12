@@ -1,3 +1,4 @@
+import times, os
 import ./gamepad
 
 proc onGamepadAttached(device: ptr GamepadDevice, context: pointer) {.cdecl.} =
@@ -32,7 +33,15 @@ gamepad.init()
 
 var iterationsToNextPoll = 1
 var close = false
+
+proc handler() {.noconv.} =
+  close = true
+  gamepad.shutdown()
+setControlCHook(handler)
+
+echo "Press Ctrl-C to exit"
 while not close:
+  sleep(100)
   gamepad.processEvents()
   dec iterationsToNextPoll
   if iterationsToNextPoll == 0:

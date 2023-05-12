@@ -14,6 +14,7 @@ requires "gamepad >= 0.0.16"
 
 ```nim
 import gamepad
+import times, os
 
 proc onGamepadAttached(device: ptr GamepadDevice, context: pointer) {.cdecl.} =
   var js = device[]
@@ -45,11 +46,17 @@ gamepad.buttonUpFunc(onButtonUp)
 gamepad.axisMoveFunc(onAxisMoved)
 gamepad.init()
 
-# Do your loop however you do that
-# this polls for new devices every 30 times it's run, which is pretty high
 var iterationsToNextPoll = 1
 var close = false
+
+proc handler() {.noconv.} =
+  close = true
+  gamepad.shutdown()
+setControlCHook(handler)
+
+echo "Press Ctrl-C to exit"
 while not close:
+  sleep(100)
   gamepad.processEvents()
   dec iterationsToNextPoll
   if iterationsToNextPoll == 0:
