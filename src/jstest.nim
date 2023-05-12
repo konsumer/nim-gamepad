@@ -1,4 +1,4 @@
-import times, os
+import os
 import ./gamepad
 
 proc onGamepadAttached(device: ptr GamepadDevice, context: pointer) {.cdecl.} =

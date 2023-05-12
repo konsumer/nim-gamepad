@@ -14,7 +14,7 @@ requires "gamepad >= 0.0.16"
 
 ```nim
 import gamepad
-import times, os
+import os
 
 proc onGamepadAttached(device: ptr GamepadDevice, context: pointer) {.cdecl.} =
   var js = device[]
