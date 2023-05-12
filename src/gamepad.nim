@@ -1,5 +1,3 @@
-{.passC: "-I.".}
-
 {.compile: "gamepad/Gamepad_private.c".}
 
 when defined(macosx):

@@ -4,8 +4,10 @@ It should work on Windows, Linux, and Mac.
 
 ## installation
 
-```
-nimble install gamepad
+Add this to your .nimble file:
+
+```nim
+requires "gamepad >= 0.0.16"
 ```
 
 ## usage
