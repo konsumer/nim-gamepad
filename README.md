@@ -49,6 +49,9 @@ gamepad.init()
 var iterationsToNextPoll = 1
 var close = false
 
+# do your loop however you like
+# this is a simple example that will cleanup on Ctrl-C
+
 proc handler() {.noconv.} =
   close = true
   gamepad.shutdown()
