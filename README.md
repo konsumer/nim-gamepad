@@ -1,4 +1,4 @@
-This is a simple gamepad library for nim. It's a thin wrapper for [libstem_gamepad]( https://github.com/ThemsAllTook/libstem_gamepad).
+This is a simple gamepad library for nim. It's a thin, statically-compiled wrapper for [libstem_gamepad]( https://github.com/ThemsAllTook/libstem_gamepad).
 
 It should work on Windows, Linux, and Mac.
 
